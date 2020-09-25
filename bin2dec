@@ -1,0 +1,14 @@
+# conversão de inteiros em strings
+n = int(input('Digite um número inteiro e positivo em base binária: '))  # entrada de dados
+st1 = str(n)  # conversão de int para string
+st2 = st1[::-1]  # inversão da ordem da string
+list(st2)  # conversão da string em uma lista
+soma = 0
+res = 0
+elev = -1
+for l in list(st2):
+    recon = int(l)  # reconversão da string em int
+    elev += 1
+    res = recon * 2 ** elev
+    soma += res
+print(f'Base binária: {n}\nBase decimal: {soma}')
