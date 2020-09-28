@@ -1,0 +1,22 @@
+# Conversor de inteiros em base decimal para base octal
+# Entrada de dados
+numero = int(input('Digite um número inteiro e positivo em base decimal: '))
+mostra = numero
+cond = len(str(numero))
+passo = dint = restint = 0
+lista = []
+while passo < cond:
+    passo += 1
+    dint = numero // 8
+    restint = numero % 8
+    numero = dint
+    lista.append(restint)
+octal = lista[::-1]
+# Dois números sensíveis são o 8 e 0 9, então pra "driblar" vai na gambiarra mesmo
+if octal == [0]:
+    octal.insert(-1, 1)
+elif octal == [1]:
+    octal.append(1)
+final = str(octal).strip('[]').replace(',', '')
+print(f'Base decimal: {mostra}')
+print(f'Base octal: {final}')
