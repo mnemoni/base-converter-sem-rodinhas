@@ -1,0 +1,32 @@
+n = int(input('Digite um número inteiro e positivo em base decimal: '))
+termo = 0
+potencia = -1
+lista = []
+while termo < n:
+    potencia += 1
+    termo = 2 ** potencia
+    lista.append(termo)
+    lista.sort(reverse=True)
+outra = []
+for l in lista:
+    if l > n:
+        lista.remove(l)# até aqui as potências de 2 menores que o número estão em uma lista
+soma = 0
+l_num = []
+for p in lista:
+    soma += p
+    l_num.append(p)
+    if soma > n:
+        soma -= p
+        l_num.remove(p)
+# agora é preciso cambiar os valores que somados (ou unitariamente) equivalem ao número com o valor booleado True
+# e os outros com o valor booleano False
+l_bin = []
+for num in lista:
+    if num in l_num:
+        l_bin.append(1)
+    else:
+        l_bin.append(0)
+l_bin2 = str(l_bin).strip('[]').replace(',', '')
+print(f'Base decimal: {n}\nBase binária: {l_bin2}')
+
