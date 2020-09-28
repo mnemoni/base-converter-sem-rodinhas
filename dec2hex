@@ -1,0 +1,27 @@
+# Conversor de inteiros em base decimal para base hexadecimal
+numero = int(input('Digite um número inteiro e positivo em base decimal: '))
+mostra = numero
+cond = len(str(numero))
+passo = dint = restint = 0
+lista = []
+while passo < cond:
+    passo += 1
+    dint = numero // 16
+    restint = numero % 16
+    numero = dint
+    lista.append(restint)
+hexa = str(lista[::-1]).strip('[]').replace(',', '')
+if '10' in hexa:
+    hexa = hexa.replace('10', 'A').replace('0', '')
+if '11' in hexa:
+    hexa = hexa.replace('11', 'B').replace('0', '')
+if '12' in hexa:
+    hexa = hexa.replace('12', 'C').replace('0', '')
+if '13' in hexa:
+    hexa = hexa.replace('13', 'D').replace('0', '')
+if '14' in hexa:
+    hexa = hexa.replace('14', 'E').replace('0', '')
+if '15' in hexa:
+    hexa = hexa.replace('15', 'F').replace('0', '')
+print(f'Base decimal: {mostra}')
+print(f'Base hexadecimal: {hexa}')
